@@ -118,7 +118,7 @@ export default function MinimalistInvitation() {
 
       {/* Screen 1: Cover / Amplop Digital[cite: 6] */}
       <section className="min-h-screen flex flex-col justify-between items-center text-center p-8 border-b border-stone-200 relative overflow-hidden">
-        <div className="my-auto space-y-6 max-w-lg">
+        <div className="my-auto space-y-6 max-w-lg animate-fade-up">
           <p className="text-xs uppercase tracking-[0.3em] text-stone-500">The Wedding Of</p>
           <h1 className="text-5xl md:text-6xl font-serif font-light text-stone-800 tracking-wide">
             {weddingData.groom.nickname} <span className="italic font-normal text-stone-400">&amp;</span> {weddingData.bride.nickname}
