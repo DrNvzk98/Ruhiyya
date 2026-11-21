@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-// Data Statis Undangan (Dapat diganti sesuai klien)
+// Data Statis Undangan (Dapat diganti sesuai klien)[cite: 6]
 const weddingData = {
   groom: {
     nickname: 'Budi',
@@ -40,24 +40,24 @@ const weddingData = {
     'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=600&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=600&auto=format&fit=crop',
   ],
-};[cite: 5]
+};
 
 export default function MinimalistInvitation() {
   const [isOpen, setIsOpen] = useState(false);
   const [copiedBank, setCopiedBank] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // State Form RSVP & Wish[cite: 5]
+  // State Form RSVP & Wish[cite: 6]
   const [rsvpName, setRsvpName] = useState('');
   const [status, setStatus] = useState('Hadir');
   const [message, setMessage] = useState('');
   const [wishes, setWishes] = useState([
     { name: 'Rian & Partner', status: 'Hadir', message: 'Selamat Budi & Ani! Semoga menjadi keluarga yang sakinah mawaddah warahmah.' },
     { name: 'Siti Rahma', status: 'Tidak Hadir', message: 'Selamat yaa Ani! Maaf belum bisa hadir, doa terbaik untuk kalian.' }
-  ]);[cite: 5]
+  ]);
 
-  // Countdown Timer State[cite: 5]
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });[cite: 5]
+  // Countdown Timer State[cite: 6]
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const target = new Date(weddingData.eventDate).getTime();
@@ -76,22 +76,22 @@ export default function MinimalistInvitation() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);[cite: 5]
+  }, []);
 
   const handleOpenInvitation = () => {
     setIsOpen(true);
     setIsPlaying(true);
-    // Smooth scroll ke section berikutnya[cite: 5]
+    // Smooth scroll ke section berikutnya[cite: 6]
     setTimeout(() => {
       document.getElementById('profile-section')?.scrollIntoView({ behavior: 'smooth' });
     }, 100);
-  };[cite: 5]
+  };
 
   const handleCopy = (number: string) => {
     navigator.clipboard.writeText(number);
     setCopiedBank(number);
     setTimeout(() => setCopiedBank(null), 2000);
-  };[cite: 5]
+  };
 
   const handleRsvpSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -99,11 +99,11 @@ export default function MinimalistInvitation() {
     setWishes([{ name: rsvpName, status, message }, ...wishes]);
     setRsvpName('');
     setMessage('');
-  };[cite: 5]
+  };
 
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#333333] font-sans antialiased selection:bg-[#E2D4C9]">
-      {/* Audio Player Dummy (Simulasi Musik Latar) */}
+      {/* Audio Player Dummy (Simulasi Musik Latar)[cite: 6] */}
       {isPlaying && (
         <div className="fixed bottom-5 right-5 z-50">
           <button
@@ -114,9 +114,9 @@ export default function MinimalistInvitation() {
             {isPlaying ? '🎵' : '🔇'}
           </button>
         </div>
-      )}[cite: 5]
+      )}
 
-      {/* Screen 1: Cover / Amplop Digital */}
+      {/* Screen 1: Cover / Amplop Digital[cite: 6] */}
       <section className="min-h-screen flex flex-col justify-between items-center text-center p-8 border-b border-stone-200 relative overflow-hidden">
         <div className="my-auto space-y-6 max-w-lg">
           <p className="text-xs uppercase tracking-[0.3em] text-stone-500">The Wedding Of</p>
@@ -124,7 +124,7 @@ export default function MinimalistInvitation() {
             {weddingData.groom.nickname} <span className="italic font-normal text-stone-400">&amp;</span> {weddingData.bride.nickname}
           </h1>
           <p className="text-sm text-stone-600 font-light tracking-widest uppercase">20 . 11 . 2026</p>
-        </div>[cite: 5]
+        </div>
 
         <div className="mb-8 space-y-4 max-w-sm w-full">
           <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-stone-200/80 shadow-sm">
@@ -138,12 +138,12 @@ export default function MinimalistInvitation() {
             Buka Undangan
           </button>
         </div>
-      </section>[cite: 5]
+      </section>
 
-      {/* Konten Utama (Muncul secara bertahap / scrollable) */}
+      {/* Konten Utama (Muncul secara bertahap / scrollable)[cite: 6] */}
       {isOpen && (
         <div className="animate-fade-in transition-all duration-700">
-          {/* Screen 2: Salam & Profil Pasangan */}
+          {/* Screen 2: Salam & Profil Pasangan[cite: 6] */}
           <section id="profile-section" className="py-24 px-6 max-w-4xl mx-auto text-center space-y-16">
             <div className="space-y-4 max-w-xl mx-auto">
               <span className="text-xl text-stone-400 font-serif italic">"</span>
@@ -151,19 +151,19 @@ export default function MinimalistInvitation() {
                 Dan di antara tanda-tanda (kebesaran-Nya) ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya.
               </p>
               <p className="text-xs tracking-widest text-stone-400 uppercase">Ar-Rum: 21</p>
-            </div>[cite: 5]
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              {/* Mempelai Pria */}
+              {/* Mempelai Pria[cite: 6] */}
               <div className="space-y-4 flex flex-col items-center">
                 <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-stone-200 shadow-inner">
                   <img src={weddingData.groom.image} alt={weddingData.groom.fullName} className="w-full h-full object-cover" />
                 </div>
                 <h3 className="text-2xl font-serif text-stone-800">{weddingData.groom.fullName}</h3>
                 <p className="text-xs text-stone-500 max-w-xs">{weddingData.groom.parents}</p>
-              </div>[cite: 5]
+              </div>
 
-              {/* Mempelai Wanita */}
+              {/* Mempelai Wanita[cite: 6] */}
               <div className="space-y-4 flex flex-col items-center">
                 <div className="w-40 h-40 rounded-full overflow-hidden border-2 border-stone-200 shadow-inner">
                   <img src={weddingData.bride.image} alt={weddingData.bride.fullName} className="w-full h-full object-cover" />
@@ -172,17 +172,17 @@ export default function MinimalistInvitation() {
                 <p className="text-xs text-stone-500 max-w-xs">{weddingData.bride.parents}</p>
               </div>
             </div>
-          </section>[cite: 5]
+          </section>
 
-          {/* Screen 3: Detail Acara & Countdown */}
+          {/* Screen 3: Detail Acara & Countdown[cite: 6] */}
           <section className="py-20 bg-stone-100/60 px-6 border-y border-stone-200">
             <div className="max-w-4xl mx-auto text-center space-y-12">
               <div className="space-y-2">
                 <h2 className="text-3xl font-serif text-stone-800">Waktu &amp; Lokasi</h2>
                 <p className="text-xs text-stone-500 uppercase tracking-widest">Informasi Acara Pernikahan</p>
-              </div>[cite: 5]
+              </div>
 
-              {/* Countdown Timer */}
+              {/* Countdown Timer[cite: 6] */}
               <div className="grid grid-cols-4 gap-4 max-w-md mx-auto py-4">
                 {[
                   { label: 'Hari', value: timeLeft.days },
@@ -195,10 +195,10 @@ export default function MinimalistInvitation() {
                     <span className="text-[10px] text-stone-400 uppercase tracking-wider">{item.label}</span>
                   </div>
                 ))}
-              </div>[cite: 5]
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto">
-                {/* Akad */}
+                {/* Akad[cite: 6] */}
                 <div className="bg-white p-8 rounded-2xl border border-stone-200/80 shadow-sm space-y-3">
                   <h4 className="text-xl font-serif text-stone-800 border-b pb-2">Akad Nikah</h4>
                   <p className="text-sm text-stone-600 font-medium">{weddingData.akad.date}</p>
@@ -207,9 +207,9 @@ export default function MinimalistInvitation() {
                     <p className="text-xs font-semibold text-stone-700">{weddingData.akad.location}</p>
                     <p className="text-xs text-stone-500">{weddingData.akad.address}</p>
                   </div>
-                </div>[cite: 5]
+                </div>
 
-                {/* Resepsi */}
+                {/* Resepsi[cite: 6] */}
                 <div className="bg-white p-8 rounded-2xl border border-stone-200/80 shadow-sm space-y-3">
                   <h4 className="text-xl font-serif text-stone-800 border-b pb-2">Resepsi</h4>
                   <p className="text-sm text-stone-600 font-medium">{weddingData.resepsi.date}</p>
@@ -219,7 +219,7 @@ export default function MinimalistInvitation() {
                     <p className="text-xs text-stone-500">{weddingData.resepsi.address}</p>
                   </div>
                 </div>
-              </div>[cite: 5]
+              </div>
 
               <a
                 href={weddingData.mapsUrl}
@@ -230,14 +230,14 @@ export default function MinimalistInvitation() {
                 Buka Google Maps
               </a>
             </div>
-          </section>[cite: 5]
+          </section>
 
-          {/* Screen 4: Galeri Foto Minimalis */}
+          {/* Screen 4: Galeri Foto Minimalis[cite: 6] */}
           <section className="py-24 px-6 max-w-4xl mx-auto text-center space-y-12">
             <div className="space-y-2">
               <h2 className="text-3xl font-serif text-stone-800">Momen Bahagia</h2>
               <p className="text-xs text-stone-500 uppercase tracking-widest">Galeri Foto Pre-Wedding</p>
-            </div>[cite: 5]
+            </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {weddingData.gallery.map((src, index) => (
@@ -250,15 +250,15 @@ export default function MinimalistInvitation() {
                 </div>
               ))}
             </div>
-          </section>[cite: 5]
+          </section>
 
-          {/* Screen 5: Form RSVP & Ucapan */}
+          {/* Screen 5: Form RSVP & Ucapan[cite: 6] */}
           <section className="py-20 bg-stone-100/60 px-6 border-t border-stone-200">
             <div className="max-w-2xl mx-auto text-center space-y-8">
               <div className="space-y-2">
                 <h2 className="text-3xl font-serif text-stone-800">RSVP &amp; Ucapan</h2>
                 <p className="text-xs text-stone-500 uppercase tracking-widest">Konfirmasi Kehadiran &amp; Doa Restu</p>
-              </div>[cite: 5]
+              </div>
 
               <form onSubmit={handleRsvpSubmit} className="bg-white p-6 md:p-8 rounded-2xl border border-stone-200 shadow-sm text-left space-y-4">
                 <div>
@@ -271,7 +271,7 @@ export default function MinimalistInvitation() {
                     placeholder="Masukkan nama Anda"
                     className="w-full p-3 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:border-stone-400"
                   />
-                </div>[cite: 5]
+                </div>
 
                 <div>
                   <label className="block text-xs text-stone-500 mb-1">Konfirmasi Kehadiran</label>
@@ -283,7 +283,7 @@ export default function MinimalistInvitation() {
                     <option value="Hadir">Hadir</option>
                     <option value="Tidak Hadir">Tidak Hadir</option>
                   </select>
-                </div>[cite: 5]
+                </div>
 
                 <div>
                   <label className="block text-xs text-stone-500 mb-1">Pesan / Doa</label>
@@ -295,7 +295,7 @@ export default function MinimalistInvitation() {
                     placeholder="Tuliskan ucapan &amp; doa terbaik..."
                     className="w-full p-3 text-sm bg-stone-50 border border-stone-200 rounded-lg focus:outline-none focus:border-stone-400"
                   ></textarea>
-                </div>[cite: 5]
+                </div>
 
                 <button
                   type="submit"
@@ -303,9 +303,9 @@ export default function MinimalistInvitation() {
                 >
                   Kirim Ucapan
                 </button>
-              </form>[cite: 5]
+              </form>
 
-              {/* Feed Ucapan */}
+              {/* Feed Ucapan[cite: 6] */}
               <div className="space-y-4 text-left max-h-80 overflow-y-auto pr-2">
                 {wishes.map((item, idx) => (
                   <div key={idx} className="bg-white p-4 rounded-xl border border-stone-200/80 shadow-sm space-y-1">
@@ -320,16 +320,16 @@ export default function MinimalistInvitation() {
                 ))}
               </div>
             </div>
-          </section>[cite: 5]
+          </section>
 
-          {/* Screen 6: Digital Gift & Penutup */}
+          {/* Screen 6: Digital Gift & Penutup[cite: 6] */}
           <section className="py-24 px-6 max-w-xl mx-auto text-center space-y-12">
             <div className="space-y-4">
               <h2 className="text-3xl font-serif text-stone-800">Digital Gift</h2>
               <p className="text-xs text-stone-500 leading-relaxed">
                 Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberikan tanda kasih, Anda dapat menyampaikannya melalui:
               </p>
-            </div>[cite: 5]
+            </div>
 
             <div className="space-y-4">
               {weddingData.bankInfo.map((item, idx) => (
@@ -345,7 +345,7 @@ export default function MinimalistInvitation() {
                   </button>
                 </div>
               ))}
-            </div>[cite: 5]
+            </div>
 
             <div className="pt-12 space-y-4 border-t border-stone-200">
               <p className="text-sm text-stone-600 font-light">
@@ -360,4 +360,4 @@ export default function MinimalistInvitation() {
       )}
     </main>
   );
-}[cite: 5]
+}
